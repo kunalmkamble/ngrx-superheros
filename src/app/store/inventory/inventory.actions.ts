@@ -3,5 +3,5 @@ import { MerchandiseEntry } from 'src/app/models/MerchandiseEntry';
 
 export const inventoryActions = {
     add: createAction('[Inventory Component] Add', props<MerchandiseEntry>()),
-    remove: createAction('[Inventory Component] Remove')
+    remove: createAction('[Inventory Component] Remove', props<{ index: number }>()),
 }

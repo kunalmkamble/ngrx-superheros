@@ -1,5 +1,6 @@
 <h1>Merchandise Inventory</h1>
-
+<a routerLink="/">Go to home</a><br/>
+<button type="submit" (click)="addNewHero()">Add a new Super Hero</button>
 <table class="table table-striped">
   <tr>
     <th>Image URL</th>
@@ -13,12 +14,12 @@
     <!-- <td><input type="text" name="displayImage" id=""></td> -->
   </tr>
   <tr *ngFor="let entry of inventory$|async; let i=index">
-    <td><img class="thumbnail" src="{{entry.merchandise.displayImage}}"></td>
-    <td>{{entry.merchandise.label}}</td>
-    <td>{{entry.merchandise.description}}</td>
-    <td>{{entry.quantity}}</td>
-    <td>{{entry.merchandise.price}}</td>
-    <td></td>
+    <td><img class="thumbnail" src="{{entry?.merchandise?.displayImage}}"></td>
+    <td>{{entry?.merchandise?.label}}</td>
+    <td>{{entry?.merchandise?.description}}</td>
+    <td>{{entry?.quantity}}</td>
+    <td>{{entry?.merchandise?.price}}</td>
+    <td><button (click)="removeHero(i)">Remove</button></td>
   </tr>
 
 </table>

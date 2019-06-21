@@ -37,4 +37,8 @@ export const inventory = createReducer(initialState,
     on(inventoryActions.add, (state, entry: MerchandiseEntry) => {
         state = state.concat(entry);
         return state;
+    }),
+    on(inventoryActions.remove, (state, { index }) => {
+        state = state.filter((entry, i) => i !== index);
+        return state;
     }));
