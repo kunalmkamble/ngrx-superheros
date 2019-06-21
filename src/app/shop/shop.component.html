@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1>Welcome Marvel Mania!</h1>
+  <p>One stop shop for all Marvel merchandise</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <div class="row">
+        <div *ngFor="let entry of  (inventory$ | async)" class="col-3">
+          <app-merchandise [merchandise]="entry.merchandise"></app-merchandise>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <app-cart></app-cart>
+    </div>
+  </div>
+</div>
