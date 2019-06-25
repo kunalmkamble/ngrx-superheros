@@ -1,15 +1,25 @@
 <table class="table table-striped table-responsive">
   <tr>
     <th>#</th>
-    <th>Description</th>
-    <th>Quantity</th>
-    <th>Price</th>
+    <th>Descr.</th>
+    <th>Quan.</th>
+    <th>$</th>
     <th></th>
   </tr>
   <tr *ngFor="let merchandiseEntry of cart$|async; let i=index">
-    <td><img class="thumbnail" src="{{merchandiseEntry.merchandise.displayImage}}"></td>
-    <td>{{merchandiseEntry.merchandise.label}}</td>
-    <td><input type="number" (change)="update(i, merchandiseEntry)" [(ngModel)]="merchandiseEntry.quantity" min="1">
+    <td>
+      <img
+      [ngClass]="{'grey-scale': !merchandiseEntry?.available }"
+      class="thumbnail {{ merchandiseEntry?.available }}"
+      src="{{merchandiseEntry.merchandise.displayImage}}">
+    </td>
+    <td [ngClass]="{'strike': !merchandiseEntry?.available}">{{merchandiseEntry.merchandise.label}}</td>
+    <td>
+      <input type="number"
+        [disabled]="!merchandiseEntry?.available"
+        class="input-small"
+        (change)="update(i, merchandiseEntry)"
+        [(ngModel)]="merchandiseEntry.quantity" min="1">
     </td>
     <td>{{merchandiseEntry.merchandise.price}}</td>
     <td><button class="btn btn-secondary" (click)="removeFromCart(i)">Remove</button></td>

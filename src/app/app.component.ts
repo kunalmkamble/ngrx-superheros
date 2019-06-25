@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Merchandise } from './models/Merchandise';
 import { MerchandiseEntry } from './models/MerchandiseEntry';
-import { cartActions } from "./store/cart/cart.actions";
+import { cartActions } from './store/cart/cart.actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,8 +16,8 @@ export class AppComponent {
     this.inventory$ = store.select('inventory');
   }
 
-  addToCart(merchandise: Merchandise, quantity: number) {
-    this.store.dispatch(cartActions.add({ merchandise, quantity }));
+  addToCart(merchandise: Merchandise, quantity: number, available: boolean) {
+    this.store.dispatch(cartActions.add({ merchandise, quantity, available }));
   }
 
 }
