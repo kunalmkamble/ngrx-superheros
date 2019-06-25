@@ -9,7 +9,7 @@
     <div class="col-8">
       <div class="row">
         <div *ngFor="let entry of  (inventory$ | async)" class="col-3">
-          <app-merchandise [merchandise]="merchandise"></app-merchandise>
+          <app-merchandise [merchandise]="entry"></app-merchandise>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import { cartActions } from './store/cart/cart.actions';
 export class AppComponent {
   title = 'MCU';
   inventory$: Observable<MerchandiseEntry[]>;
+
   constructor(private store: Store<{ inventory: MerchandiseEntry[] }>) {
     this.inventory$ = store.select('inventory');
   }

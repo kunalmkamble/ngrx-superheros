@@ -1,1 +1,6 @@
+<ul>
+    <li class="text" *ngFor="let item of inventoryCollection | async">
+        {{item.quantity}}
+    </li>
+</ul>
 <router-outlet></router-outlet>

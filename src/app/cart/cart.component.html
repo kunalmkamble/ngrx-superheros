@@ -8,20 +8,15 @@
   </tr>
   <tr *ngFor="let merchandiseEntry of cart$|async; let i=index">
     <td>
-      <img
-      [ngClass]="{'grey-scale': !merchandiseEntry?.available }"
-      class="thumbnail {{ merchandiseEntry?.available }}"
-      src="{{merchandiseEntry.merchandise.displayImage}}">
+      <img [ngClass]="{'grey-scale': !merchandiseEntry?.available }" class="thumbnail {{ merchandiseEntry?.available }}"
+        src="{{merchandiseEntry.displayImage}}">
     </td>
-    <td [ngClass]="{'strike': !merchandiseEntry?.available}">{{merchandiseEntry.merchandise.label}}</td>
+    <td [ngClass]="{'strike': !merchandiseEntry?.available}">{{merchandiseEntry.label}}</td>
     <td>
-      <input type="number"
-        [disabled]="!merchandiseEntry?.available"
-        class="input-small"
-        (change)="update(i, merchandiseEntry)"
-        [(ngModel)]="merchandiseEntry.quantity" min="1">
+      <input type="number" [disabled]="!merchandiseEntry?.available" class="input-small"
+        (change)="update(i, merchandiseEntry)" [(ngModel)]="merchandiseEntry.quantity" min="1">
     </td>
-    <td>{{merchandiseEntry.merchandise.price}}</td>
+    <td>{{merchandiseEntry.price}}</td>
     <td><button class="btn btn-secondary" (click)="removeFromCart(i)">Remove</button></td>
   </tr>
   <tr>

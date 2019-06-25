@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
-import { MerchandiseEntry } from 'src/app/models/MerchandiseEntry';
+import { Merchandise } from 'src/app/models/Merchandise';
 
 export const inventoryActions = {
-    add: createAction('[Inventory Component] Add', props<MerchandiseEntry>()),
+    add: createAction('[Inventory Component] Add', props<Merchandise>()),
     remove: createAction('[Inventory Component] Remove', props<{ index: number }>()),
 }

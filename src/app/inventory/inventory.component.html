@@ -1,7 +1,5 @@
 <div class="jumbotron">
   <h1>Merchandise Inventory</h1>
-  <a routerLink="/">Go to home</a><br /><br />
-  <button type="submit" (click)="addNewHero()" [disabled]="heroAdded">Add Thor</button>
 </div>
 
 <table class="table table-striped">
@@ -17,11 +15,11 @@
     <!-- <td><input type="text" name="displayImage" id=""></td> -->
   </tr>
   <tr *ngFor="let entry of (inventory$|async); let i=index">
-    <td><img class="thumbnail" src="{{entry?.merchandise?.displayImage}}"></td>
-    <td>{{entry?.merchandise?.label}}</td>
-    <td>{{entry?.merchandise?.description}}</td>
+    <td><img class="thumbnail" src="{{entry?.displayImage}}"></td>
+    <td>{{entry?.label}}</td>
+    <td>{{entry?.description}}</td>
     <td>{{entry?.quantity}}</td>
-    <td>{{entry?.merchandise?.price}}</td>
+    <td>{{entry?.price}}</td>
     <td><button (click)="removeHero(i, entry)">Remove</button></td>
   </tr>
 

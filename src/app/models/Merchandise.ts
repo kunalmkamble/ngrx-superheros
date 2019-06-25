@@ -3,4 +3,5 @@ export interface Merchandise {
     label: string;
     description: string;
     price: number;
+    quantity: number;
 }
