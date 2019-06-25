@@ -1,18 +1,19 @@
 <div class="jumbotron">
   <h1>Welcome Marvel Mania!</h1>
   <p>One stop shop for all Marvel merchandise</p>
+  <a routerLink="/inventory">Go to Inventory</a>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-9">
+    <div class="col-8">
       <div class="row">
         <div *ngFor="let entry of  (inventory$ | async)" class="col-3">
-          <app-merchandise [merchandise]="entry.merchandise"></app-merchandise>
+          <app-merchandise [merchandise]="merchandise"></app-merchandise>
         </div>
       </div>
     </div>
-    <div class="col-3">
+    <div class="col-4">
       <app-cart></app-cart>
     </div>
   </div>

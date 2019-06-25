@@ -3,6 +3,7 @@ import { Merchandise } from '../models/Merchandise';
 import { Store } from '@ngrx/store';
 import AppState from '../store/App.state';
 import { cartActions } from '../store/cart/cart.actions';
+import { MerchandiseEntry } from '../models/MerchandiseEntry';
 
 @Component({
   selector: 'app-merchandise',
@@ -11,7 +12,7 @@ import { cartActions } from '../store/cart/cart.actions';
 })
 export class MerchandiseComponent implements OnInit {
 
-  @Input() merchandise: Merchandise;
+  @Input() merchandise: MerchandiseEntry;
   quantity = 1;
   constructor(private store: Store<AppState>) { }
 
@@ -19,7 +20,7 @@ export class MerchandiseComponent implements OnInit {
   }
 
   addToCart() {
-    this.store.dispatch(cartActions.add({ merchandise: this.merchandise, quantity: this.quantity }));
+    this.store.dispatch(cartActions.add({ merchandise: this.merchandise.merchandise, quantity: this.quantity, available: this.merchandise.available }));
   }
 
 

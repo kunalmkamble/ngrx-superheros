@@ -13,12 +13,14 @@ export class CartComponent implements OnInit {
 
   cart$: Observable<MerchandiseEntry[]>;
   total: number;
+  newCart: MerchandiseEntry[];
+
   constructor(private store: Store<AppState>) {
     this.cart$ = store.select('cart');
 
     this.cart$.subscribe(entries => {
       this.total = entries.reduce((total, entry) => {
-        return Math.round((total + entry.quantity * entry.merchandise.price) * 100) / 100;
+        return !entry.available ? total : Math.round((total + entry.quantity * entry.merchandise.price) * 100) / 100;
       }, 0);
     });
   }
