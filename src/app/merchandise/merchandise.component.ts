@@ -20,7 +20,7 @@ export class MerchandiseComponent implements OnInit {
   }
 
   addToCart() {
-    this.store.dispatch(cartActions.add({ merchandise: this.merchandise.merchandise, quantity: this.quantity, available: this.merchandise.available }));
+    this.store.dispatch(cartActions.add({ ...this.merchandise, quantity: this.quantity }));
   }
 
 
