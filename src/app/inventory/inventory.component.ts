@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MerchandiseEntry } from '../models/MerchandiseEntry';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -16,10 +16,13 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./inventory.component.scss']
 })
 export class InventoryComponent {
+  @ViewChild('openbtn') openbtn: ElementRef;
+
   entry: Merchandise;
   inventory$: Observable<Merchandise[]>;
   cart$: Observable<MerchandiseEntry[]>;
   heroAdded: boolean;
+  showdialog: boolean;
 
   constructor(private store: Store<AppState>, private fireStore: AngularFirestore) {
     this.resetEntry();
@@ -28,7 +31,7 @@ export class InventoryComponent {
   }
 
   resetEntry() {
-    this.entry = { displayImage: '', label: '', description: '', price: 0, quantity: 0 };
+    this.entry = { displayImage: '', label: '', description: '', price: 0, quantity: 0, available: false };
   }
 
   removeHero = (index: number, entry: MerchandiseEntry): void => {
@@ -46,6 +49,14 @@ export class InventoryComponent {
 
   add() {
     this.resetEntry();
+  }
+
+  openDialog = (): void => {
+    this.showdialog = true;
+  }
+
+  updateShowDialog = (res: boolean): void => {
+    this.showdialog = res;
   }
 
 }

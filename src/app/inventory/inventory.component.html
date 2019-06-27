@@ -1,5 +1,6 @@
 <div class="jumbotron">
   <h1>Merchandise Inventory</h1>
+  <button (click)="openDialog()">Click to know more!</button>
 </div>
 
 <table class="table table-striped">
@@ -22,5 +23,6 @@
     <td>{{entry?.price}}</td>
     <td><button (click)="removeHero(i, entry)">Remove</button></td>
   </tr>
-
 </table>
+
+<app-add-inventory [showdialog]="showdialog" (isDialogOpen)="updateShowDialog()"></app-add-inventory>

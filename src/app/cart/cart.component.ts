@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
 
     this.cart$.subscribe(entries => {
       this.total = entries.reduce((total, entry) => {
-        return !entry.available ? total : Math.round((total + entry.quantity * entry.merchandise.price) * 100) / 100;
+        return !entry.available ? total : Math.round((total + entry.quantity * entry['price']) * 100) / 100;
       }, 0);
     });
   }

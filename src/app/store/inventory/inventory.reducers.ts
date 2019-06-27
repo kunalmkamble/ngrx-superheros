@@ -5,6 +5,7 @@ import { inventoryActions } from './inventory.actions';
 const initialState = [
   {
     quantity: 100,
+    available: true,
     label: 'Ironman',
     description: 'A billionaire industrialist and genius inventor ',
     price: 199.90,
@@ -13,6 +14,7 @@ const initialState = [
   },
   {
     quantity: 100,
+    available: true,
     label: 'Captain America',
     description: 'The first avenger',
     price: 199.90,
@@ -20,6 +22,7 @@ const initialState = [
   },
   {
     quantity: 100,
+    available: true,
     label: 'Hulk',
     description: 'Hulk smash!',
     price: 149.99,
