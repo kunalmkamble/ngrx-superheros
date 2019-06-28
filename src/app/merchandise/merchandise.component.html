@@ -1,5 +1,7 @@
 <div class="card mb-4">
-  <img class="card-img-top" [src]="merchandise.displayImage" />
+  <div class="text-center">
+    <img class="card-img-top img-thumbnail thumbnail-lg display-inline" src="{{merchandise.displayImage}}" />
+  </div>
   <div class="card-body">
     <h5 class="card-title">{{ merchandise.label }}</h5>
     <p class="card-text">{{merchandise.description}}</p>

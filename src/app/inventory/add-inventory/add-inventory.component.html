@@ -1,0 +1,41 @@
+<dialog id="add-hero-dialog" *ngIf="showdialog" open="true">
+  <section class="row">
+    <button (click)="closeBtn()" type="button" class="btn btn-dark" id="closeBtn">X</button>
+
+
+    <form #form [formGroup]="heroForm" class="col-md-12">
+      <h3>Enter Hero details</h3>
+      <div class="text-center">
+        <img *ngIf="heroForm.value.displayImage" src="{{ heroForm.value.displayImage }}" class="img-thumbnail thumbnail-lg display-inline" />
+      </div>
+      <div class="form-group">
+        <label for="displayImage">Image</label>
+        <input type="text" id="displayImage" class="form-control" formControlName="displayImage" name="displayImage">
+      </div>
+      <div class="form-group">
+        <label for="label">Label</label>
+        <input type="text" id="label" class="form-control" formControlName="label" name="label">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" id="description" class="form-control" formControlName="description" name="description">
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" formControlName="price" name="price">
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" formControlName="quantity" name="quantity">
+      </div>
+
+      <div class="row text-right">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-light" (click)="closeBtn()">Close</button>
+          <button type="button" class="btn btn-primary" [disabled]="heroForm?.invalid" (click)="addSuperHero()">Add
+            Super Hero</button>
+        </div>
+      </div>
+    </form>
+  </section>
+</dialog>

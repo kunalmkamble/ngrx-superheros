@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { MerchandiseEntry } from '../models/MerchandiseEntry';
+import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -13,21 +15,18 @@ import { Remove } from '../store/inventory/inventory.actions';
   styleUrls: ['./inventory.component.scss']
 })
 export class InventoryComponent {
-  entry: Merchandise;
+  @ViewChild('openbtn') openbtn: ElementRef;
+
   inventory$: Observable<Merchandise[]>;
   cart$: Observable<MerchandiseEntry[]>;
   heroAdded: boolean;
+  showdialog: boolean;
 
   constructor(private store: Store<AppState>, private fireStore: AngularFirestore) {
-    this.resetEntry();
     this.inventory$ = store.select('inventory');
     this.cart$ = store.select('cart');
   }
-
-  resetEntry() {
-    this.entry = { displayImage: '', label: '', description: '', price: 0, quantity: 0 };
-  }
-
+  
   removeHero = (index: number, entry: MerchandiseEntry): void => {
     this.store.dispatch(new Remove(index));
     this.cart$.subscribe(res => {
@@ -41,13 +40,12 @@ export class InventoryComponent {
     });
   }
 
-  addHero(){
-    this.store.dispatch(inventoryActions.add({...this.entry}));
-    this.resetEntry();
+  openDialog = (): void => {
+    this.showdialog = true;
   }
 
-  add() {
-    this.resetEntry();
+  updateShowDialog = (res: boolean): void => {
+    this.showdialog = res;
   }
 
 }

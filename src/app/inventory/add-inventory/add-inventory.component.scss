@@ -1,0 +1,32 @@
+dialog {
+    position: fixed;
+    top: 0;
+    border: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0,0,0, .8);
+    height: 100%;
+    
+    #closeBtn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 1;
+    }
+    
+    section {
+        margin: 5% auto;
+        background-color: #f2f2f2;
+        width: 400px;
+        height: 85%;
+        position: relative;
+        overflow: auto;
+        overflow-x: hidden;
+        padding: 15px;
+    }
+}
+
+.display-inline {
+    display: inline-block;
+}

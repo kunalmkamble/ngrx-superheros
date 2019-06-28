@@ -7,7 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { MerchandiseComponent } from './merchandise/merchandise.component';
 import { rootReducer } from './store/root.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ShopComponent } from './shop/shop.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,20 +15,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
 import { rootEffect } from './store/root.effects';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
     MerchandiseComponent,
     InventoryComponent,
-    ShopComponent
+    ShopComponent,
+    AddInventoryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,
     rootReducer,

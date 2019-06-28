@@ -1,5 +1,6 @@
 <div class="jumbotron">
   <h1>Merchandise Inventory</h1>
+  <button (click)="openDialog()" type="button" class="btn btn-primary">Add SuperHero</button>
 </div>
 
 <table class="table table-striped">
@@ -11,21 +12,13 @@
     <th>Price</th>
     <th></th>
   </tr>
-  <tr>
-    <td><input class="form-control" type="text" id="displayImage" [(ngModel)]="entry.displayImage" name="displayImage"></td>
-    <td><input class="form-control" type="text" id="label" [(ngModel)]="entry.label" name="label"></td>
-    <td><input class="form-control" type="text" id="description" [(ngModel)]="entry.description" name="description"></td>
-    <td><input class="form-control" type="text" id="quantity" [(ngModel)]="entry.quantity" name="quantity"></td>
-    <td><input class="form-control" type="text" id="price" [(ngModel)]="entry.price" name="price"></td>
-    <td><button (click)="addHero()">Add New</button></td>
-  </tr>
   <tr *ngFor="let entry of (inventory$|async); let i=index">
     <td><img class="thumbnail" src="{{entry?.displayImage}}"></td>
     <td>{{entry?.label}}</td>
     <td>{{entry?.description}}</td>
     <td>{{entry?.quantity}}</td>
     <td>{{entry?.price}}</td>
-    <td><button (click)="removeHero(i, entry)">Remove</button></td>
+    <td><button (click)="removeHero(i, entry)" type="button" class="btn btn-danger">Remove</button></td>
   </tr>
-
+<app-add-inventory [showdialog]="showdialog" (isDialogOpen)="updateShowDialog()"></app-add-inventory>
 </table>

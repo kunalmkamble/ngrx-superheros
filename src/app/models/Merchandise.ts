@@ -4,4 +4,5 @@ export interface Merchandise {
     description: string;
     price: number;
     quantity: number;
+    available: boolean;
 }
