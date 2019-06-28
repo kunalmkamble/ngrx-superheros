@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { MerchandiseEntry } from '../models/MerchandiseEntry';
-import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import AppState from '../store/App.state';
-import { inventoryActions } from '../store/inventory/inventory.actions';
-import { cartActions } from '../store/cart/cart.actions';
-import { Merchandise } from '../models/Merchandise';
-import { FirebaseDatabase } from '@angular/fire';
-import { firestore } from 'firebase';
+import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Merchandise } from '../models/Merchandise';
+import { MerchandiseEntry } from '../models/MerchandiseEntry';
+import AppState from '../store/App.state';
+import { Remove } from '../store/inventory/inventory.actions';
 
 @Component({
   selector: 'app-inventory',
@@ -32,7 +29,7 @@ export class InventoryComponent {
   }
 
   removeHero = (index: number, entry: MerchandiseEntry): void => {
-    this.store.dispatch(inventoryActions.remove({ index }));
+    this.store.dispatch(new Remove(index));
     this.cart$.subscribe(res => {
       for (let i = 0; i < res.length; i++) {
         if (entry.merchandise.label === res[i].merchandise.label) {
