@@ -12,6 +12,7 @@ dialog {
         position: absolute;
         right: 10px;
         top: 10px;
+        z-index: 1;
     }
     
     section {
@@ -24,4 +25,8 @@ dialog {
         overflow-x: hidden;
         padding: 15px;
     }
+}
+
+.display-inline {
+    display: inline-block;
 }

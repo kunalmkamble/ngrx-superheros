@@ -42,6 +42,7 @@ export class AddInventoryComponent {
 
   closeBtn() {
     this.isDialogOpen.emit(false);
+    this.heroForm.reset();
   }
 
   addSuperHero = () => {

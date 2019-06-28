@@ -1,4 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 .thumbnail {
   width: 50px;
+  &-lg {
+    width: 100px;
+  }
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.jumbotron {
+  margin-bottom: 0;
 }

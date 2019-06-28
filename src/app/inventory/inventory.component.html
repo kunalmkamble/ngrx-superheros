@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <h1>Merchandise Inventory</h1>
-  <button (click)="openDialog()">Add SuperHero</button>
+  <button (click)="openDialog()" type="button" class="btn btn-primary">Add SuperHero</button>
 </div>
 
 <table class="table table-striped">
@@ -21,7 +21,7 @@
     <td>{{entry?.description}}</td>
     <td>{{entry?.quantity}}</td>
     <td>{{entry?.price}}</td>
-    <td><button (click)="removeHero(i, entry)">Remove</button></td>
+    <td><button (click)="removeHero(i, entry)" type="button" class="btn btn-danger">Remove</button></td>
   </tr>
 </table>
 
