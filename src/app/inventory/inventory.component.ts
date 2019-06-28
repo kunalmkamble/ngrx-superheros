@@ -41,6 +41,11 @@ export class InventoryComponent {
     });
   }
 
+  addHero(){
+    this.store.dispatch(inventoryActions.add({...this.entry}));
+    this.resetEntry();
+  }
+
   add() {
     this.resetEntry();
   }

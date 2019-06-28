@@ -12,7 +12,12 @@
     <th></th>
   </tr>
   <tr>
-    <!-- <td><input type="text" name="displayImage" id=""></td> -->
+    <td><input class="form-control" type="text" id="displayImage" [(ngModel)]="entry.displayImage" name="displayImage"></td>
+    <td><input class="form-control" type="text" id="label" [(ngModel)]="entry.label" name="label"></td>
+    <td><input class="form-control" type="text" id="description" [(ngModel)]="entry.description" name="description"></td>
+    <td><input class="form-control" type="text" id="quantity" [(ngModel)]="entry.quantity" name="quantity"></td>
+    <td><input class="form-control" type="text" id="price" [(ngModel)]="entry.price" name="price"></td>
+    <td><button (click)="addHero()">Add New</button></td>
   </tr>
   <tr *ngFor="let entry of (inventory$|async); let i=index">
     <td><img class="thumbnail" src="{{entry?.displayImage}}"></td>
