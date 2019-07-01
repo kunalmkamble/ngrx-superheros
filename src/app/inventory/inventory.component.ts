@@ -1,6 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { MerchandiseEntry } from '../models/MerchandiseEntry';
-import { Observable } from 'rxjs';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -26,7 +24,7 @@ export class InventoryComponent {
     this.inventory$ = store.select('inventory');
     this.cart$ = store.select('cart');
   }
-  
+
   removeHero = (index: number, entry: MerchandiseEntry): void => {
     this.store.dispatch(new Remove(index));
     this.cart$.subscribe(res => {
