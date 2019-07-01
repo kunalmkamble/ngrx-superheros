@@ -30,6 +30,10 @@ export class Remove implements Action {
     constructor(public index: number) { }
 }
 
+export class Get implements Action {
+    readonly type = ClassActionTypes.GET;
+}
+
 
 
 export class Setup implements Action {
@@ -43,6 +47,6 @@ export class Setup implements Action {
  */
 export type ClassActions
     = Add
-    | Remove | Setup;
+    | Remove | Setup | Get;
 
 
