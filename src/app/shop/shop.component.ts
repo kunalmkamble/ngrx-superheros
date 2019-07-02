@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Merchandise } from '../models/Merchandise';
-import { MerchandiseEntry } from '../models/MerchandiseEntry';
 import { cartActions } from '../store/cart/cart.actions';
 import { ClassActionTypes } from '../store/inventory/inventory.actions';
 
@@ -13,8 +12,8 @@ import { ClassActionTypes } from '../store/inventory/inventory.actions';
 })
 export class ShopComponent implements OnInit {
   title = 'MCU';
-  inventory$: Observable<MerchandiseEntry[]>;
-  constructor(private store: Store<{ inventory: MerchandiseEntry[] }>) {
+  inventory$: Observable<Merchandise[]>;
+  constructor(private store: Store<{ inventory: Merchandise[] }>) {
     this.inventory$ = store.select('inventory');
   }
 

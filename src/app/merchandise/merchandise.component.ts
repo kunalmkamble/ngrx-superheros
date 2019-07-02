@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Merchandise } from '../models/Merchandise';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MerchandiseEntry } from '../models/MerchandiseEntry';
 import AppState from '../store/App.state';
 import { cartActions } from '../store/cart/cart.actions';
-import { MerchandiseEntry } from '../models/MerchandiseEntry';
+import { Merchandise } from '../models/Merchandise';
 
 @Component({
   selector: 'app-merchandise',
@@ -12,7 +12,7 @@ import { MerchandiseEntry } from '../models/MerchandiseEntry';
 })
 export class MerchandiseComponent implements OnInit {
 
-  @Input() merchandise: MerchandiseEntry;
+  @Input() merchandise: Merchandise;
   quantity = 1;
   constructor(private store: Store<AppState>) { }
 
@@ -20,7 +20,7 @@ export class MerchandiseComponent implements OnInit {
   }
 
   addToCart() {
-    this.store.dispatch(cartActions.add({ ...this.merchandise, quantity: this.quantity }));
+    this.store.dispatch(cartActions.add({ merchandise: this.merchandise, quantity: this.quantity, available: true }));
   }
 
 

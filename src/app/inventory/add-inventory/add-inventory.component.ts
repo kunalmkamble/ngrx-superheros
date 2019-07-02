@@ -1,9 +1,7 @@
-import { Component, OnInit, SimpleChanges, Output, Input, ElementRef, ViewChild, EventEmitter } from '@angular/core';
-import { FormBuilder, FormControl, Validators, FormsModule, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import AppState from 'src/app/store/App.state';
-import { MerchandiseEntry } from 'src/app/models/MerchandiseEntry';
-import { Merchandise } from 'src/app/models/Merchandise';
 import { Post } from 'src/app/store/inventory/invetory.effects';
 
 @Component({

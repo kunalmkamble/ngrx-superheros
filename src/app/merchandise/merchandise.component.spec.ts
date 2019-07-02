@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing'
 import { MerchandiseComponent } from './merchandise.component';
 
 describe('MerchandiseComponent', () => {
@@ -8,14 +8,20 @@ describe('MerchandiseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MerchandiseComponent ]
+      declarations: [MerchandiseComponent],
+      providers: [provideMockStore({})]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MerchandiseComponent);
     component = fixture.componentInstance;
+    component.merchandise = {
+      displayImage: "",
+      available: true, label: "", description: "", price: 99,
+      quantity: 10
+    }
     fixture.detectChanges();
   });
 
